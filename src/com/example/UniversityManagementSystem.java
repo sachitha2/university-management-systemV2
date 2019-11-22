@@ -3,9 +3,13 @@ import java.sql.Connection;
 import java.util.Scanner;
 import java.sql.DriverManager;
 public class UniversityManagementSystem {
-    private static DB obj_DB_Connection;
+    public static DB obj_DB_Connection;
+    String sName;
+    String uName;
+    String pass;
+    int age;
 
-    Scanner input = new Scanner(System.in);
+
     public static void main(String[] args){
         obj_DB_Connection=new DB();
         Connection connection=null;
@@ -16,12 +20,15 @@ public class UniversityManagementSystem {
 
         UniversityManagementSystem ums = new UniversityManagementSystem();
         ums.menu();
+
+
     }
 
     public void menu(){
+        Scanner input = new Scanner(System.in);
         System.out.println("Select,  [1] SignUp , [2] SignIn, [3] Add course");
         int menuSelector = input.nextInt();
-//        Student stu = new Student();
+
 //        Lecturer lecturerObject = new Lecturer();
 //        Courses courseObject = new Courses();
         if(menuSelector == 1){
@@ -33,7 +40,31 @@ public class UniversityManagementSystem {
             }
             //Student
             else{
-                obj_DB_Connection.getCourses();
+
+
+
+                System.out.print("Name: \n");
+                Scanner scannerStudent = new Scanner(System. in);
+                sName = scannerStudent. nextLine();
+
+
+                System.out.print("Username: \n");
+                uName = scannerStudent. nextLine();
+
+                System.out.print("Password\n");
+                pass = scannerStudent. nextLine();
+
+                System.out.print("Age :\n");
+
+                age = input.nextInt();
+                Std student = new Std(sName,uName,pass,age);
+                System.out.println(obj_DB_Connection.addStudent(student));
+//                if(obj_DB_Connection.addStudent(student) == 1){
+//
+//                }
+//                System.out.println(input.nextInt());
+
+//                obj_DB_Connection.getCourses();
 //                studentObject.registerStudent();
             }
         }else if(menuSelector == 2){
