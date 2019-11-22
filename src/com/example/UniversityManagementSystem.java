@@ -3,13 +3,15 @@ import java.sql.Connection;
 import java.util.Scanner;
 import java.sql.DriverManager;
 public class UniversityManagementSystem {
+    private static DB obj_DB_Connection;
 
     Scanner input = new Scanner(System.in);
     public static void main(String[] args){
-        DB obj_DB_Connection=new DB();
+        obj_DB_Connection=new DB();
         Connection connection=null;
         connection=obj_DB_Connection.get_connection();
         System.out.println(connection);
+
 
 
         UniversityManagementSystem ums = new UniversityManagementSystem();
@@ -25,9 +27,13 @@ public class UniversityManagementSystem {
         if(menuSelector == 1){
             System.out.println("Please select your registration role [1] Lecturer, [2] Student.");
             int roleSelector = input.nextInt();
+            //Lecture
             if(roleSelector == 1){
 //                lecturerObject.registerLecturer();
-            }else{
+            }
+            //Student
+            else{
+                obj_DB_Connection.getCourses();
 //                studentObject.registerStudent();
             }
         }else if(menuSelector == 2){
