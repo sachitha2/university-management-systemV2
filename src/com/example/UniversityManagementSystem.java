@@ -21,7 +21,7 @@ public class UniversityManagementSystem {
     public void menu(){
         System.out.println("Select,  [1] SignUp , [2] SignIn, [3] Add course");
         int menuSelector = input.nextInt();
-//        Student studentObject = new Student();
+//        Student stu = new Student();
 //        Lecturer lecturerObject = new Lecturer();
 //        Courses courseObject = new Courses();
         if(menuSelector == 1){

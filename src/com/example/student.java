@@ -1,6 +1,6 @@
 package com.example;
 
-public class student {
+public class Student {
 
     private String name;
     private String username;
@@ -43,7 +43,7 @@ public class student {
 
 
 
-    public student(String name, String username, String password, int age) {
+    public Student(String name, String username, String password, int age) {
         this.name = name;
         this.username = username;
         this.password = password;
