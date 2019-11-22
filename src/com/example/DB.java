@@ -31,17 +31,33 @@ public class DB {
         try {
             ps=connection.prepareStatement(query);
             ps.execute();
-//            while(rs.next()){
-//                System.out.println(rs.getString("id")+" - "+rs.getString("course_code"));
-//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
 
-        return std.getAge();
+        return 1;
     }
+
+    public int addLecture(Lecturer lecturer){
+        DB obj_DB_Connection=new DB();
+        Connection connection=null;
+        connection=obj_DB_Connection.get_connection();
+        PreparedStatement ps=null;
+        String query="INSERT INTO lecturer (id, name, username, password) VALUES (NULL, '"+lecturer.getName()+"', '"+lecturer.getUsername()+"', '"+lecturer.getPassword()+"');";
+        try {
+            ps=connection.prepareStatement(query);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return 1;
+    }
+
 
     public Connection get_connection(){
         Connection connection=null;
